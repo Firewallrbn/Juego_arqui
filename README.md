@@ -2,15 +2,6 @@
 
 Este proyecto demuestra la implementación del patrón de diseño **Abstract Factory** (Fábrica Abstracta) en un videojuego simple "Space War". El objetivo es permitir la creación de diferentes familias de objetos de juego (enemigos, nave del jugador, balas, fondo) sin especificar sus clases concretas.
 
-## Lo que se hizo
-
-Se refactorizó el código original para desacoplar la lógica del juego de la representación visual. Se crearon:
-- **Interfaces de Renderizado:** `PlayerRenderer`, `BulletRenderer`, `BackgroundRendererInterface`.
-- **Fábricas Abstractas:** Interfaz `GameElementsFactory`.
-- **Fábricas Concretas:**
-    - `SpriteGameElementsFactory`: Usa imágenes (sprites) para los elementos.
-    - `VectorialGameElementsFactory`: Usa gráficos vectoriales básicos (formas geométricas).
-    - `ColorfulVectorialGameElementsFactory`: Una variante vectorial con colores vibrantes.
 
 ## Cómo visualizar cada estilo
 
