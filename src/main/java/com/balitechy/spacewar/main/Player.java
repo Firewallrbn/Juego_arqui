@@ -1,8 +1,8 @@
 package com.balitechy.spacewar.main;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
+
+import com.balitechy.spacewar.main.rendering.PlayerRenderer;
 
 public class Player {
 	
@@ -15,16 +15,14 @@ public class Player {
 	public static final int WIDTH = 56;
 	public static final int HEIGHT = 28;
 	
-	private BufferedImage image;
+	private PlayerRenderer renderer;
 	private Game game;
 	
-	public Player(double x, double y, Game game){
+	public Player(double x, double y, Game game, PlayerRenderer renderer){
 		this.x = x;
 		this.y = y;
 		this.game = game;
-		
-		// Get image for Player		
-		image = game.getSprites().getImage(219, 304, WIDTH, HEIGHT);
+		this.renderer = renderer;
 	}
 	
 	public double getX() {
@@ -52,8 +50,9 @@ public class Player {
 	}
 	
 	public void shoot(){
-		Bullet b = new Bullet(x+(WIDTH/2)-5, y-18, game);
-		game.getBullets().addBullet(b);
+		BulletController bullets = game.getBullets();
+		Bullet b = new Bullet(x+(WIDTH/2)-5, y-18, bullets.getBulletRenderer());
+		bullets.addBullet(b);
 	}
 
 	public void tick(){
@@ -72,7 +71,6 @@ public class Player {
 	}
 	
 	public void render(Graphics g){
-		g.setColor(Color.white);
-		g.drawImage(image, (int) x, (int) y, null);
+		renderer.render(g, x, y, WIDTH, HEIGHT);
 	}
 }

@@ -10,6 +10,15 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 
+import com.balitechy.spacewar.main.rendering.BackgroundRendererInterface;
+import com.balitechy.spacewar.main.rendering.BulletRenderer;
+import com.balitechy.spacewar.main.rendering.GameElementsFactory;
+import com.balitechy.spacewar.main.rendering.PlayerRenderer;
+import com.balitechy.spacewar.main.rendering.sprites.SpriteGameElementsFactory;
+// Descomentar para cambiar el estilo:
+import com.balitechy.spacewar.main.rendering.vectorial.VectorialGameElementsFactory;
+import com.balitechy.spacewar.main.rendering.colorful.ColorfulVectorialGameElementsFactory;
+
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
@@ -25,10 +34,17 @@ public class Game extends Canvas implements Runnable {
 	
 	private SpritesImageLoader sprites;
 	
+	// Fábrica abstracta para crear los elementos de renderizado
+	private GameElementsFactory factory;
+	
+	// Renderers obtenidos de la fábrica
+	private PlayerRenderer playerRenderer;
+	private BulletRenderer bulletRenderer;
+	private BackgroundRendererInterface backgRenderer;
+	
 	//Game components
 	private Player player;
 	private BulletController bullets;
-	private BackgroundRenderer backgRenderer;
 	
 	
 	public void init(){
@@ -42,6 +58,24 @@ public class Game extends Canvas implements Runnable {
 			e.printStackTrace();
 		}
 		
+		// =====================================================
+		// CAMBIAR ESTA LÍNEA PARA CAMBIAR EL ESTILO DEL JUEGO:
+		// =====================================================
+		// Opción 1: Sprites (imágenes) - estilo original
+		//factory = new SpriteGameElementsFactory(sprites);
+		
+		// Opción 2: Vectorial (formas geométricas)
+		factory = new VectorialGameElementsFactory();
+		
+		// Opción 3: Vectorial Colorido (formas geométricas con colores)
+		// factory = new ColorfulVectorialGameElementsFactory();
+		// =====================================================
+		
+		// Crear renderers usando la fábrica
+		playerRenderer = factory.createPlayerRenderer();
+		bulletRenderer = factory.createBulletRenderer();
+		backgRenderer = factory.createBackgroundRenderer();
+		
 		// Add keyboard listener
 		addKeyListener(new InputHandler(this));
 		
@@ -49,9 +83,8 @@ public class Game extends Canvas implements Runnable {
 		
 		
 		// Set player position at the bottom center.
-		player = new Player((WIDTH * SCALE - Player.WIDTH) / 2, HEIGHT * SCALE - 50 , this);
-		bullets = new BulletController();
-		backgRenderer=new BackgroundRenderer();
+		player = new Player((WIDTH * SCALE - Player.WIDTH) / 2, HEIGHT * SCALE - 50 , this, playerRenderer);
+		bullets = new BulletController(bulletRenderer);
 	}
 
 	public SpritesImageLoader getSprites(){

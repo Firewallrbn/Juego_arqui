@@ -3,8 +3,19 @@ package com.balitechy.spacewar.main;
 import java.awt.Graphics;
 import java.util.LinkedList;
 
+import com.balitechy.spacewar.main.rendering.BulletRenderer;
+
 public class BulletController {
 	private LinkedList<Bullet> bl = new LinkedList<Bullet>();
+	private BulletRenderer bulletRenderer;
+	
+	public BulletController(BulletRenderer bulletRenderer) {
+		this.bulletRenderer = bulletRenderer;
+	}
+	
+	public BulletRenderer getBulletRenderer() {
+		return bulletRenderer;
+	}
 	
 	public void tick(){
 		for(int i=0; i < bl.size(); i++){
