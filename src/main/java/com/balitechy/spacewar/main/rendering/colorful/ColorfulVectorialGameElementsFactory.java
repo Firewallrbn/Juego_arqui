@@ -6,11 +6,9 @@ import com.balitechy.spacewar.main.rendering.GameElementsFactory;
 import com.balitechy.spacewar.main.rendering.PlayerRenderer;
 
 /**
- * Fábrica concreta que crea renderers vectoriales coloridos.
- * Hereda la lógica de dibujo de las clases vectoriales base pero con colores personalizados.
- * 
- * Ejemplo del principio DRY: Las clases Colorful solo modifican colores,
- * toda la lógica de dibujo se reutiliza de las clases Vectorial base.
+  Fábrica concreta que crea renderers vectoriales coloridos.
+  Hereda la lógica de dibujo de las clases vectoriales base pero con colores personalizados.
+  toda la lógica de dibujo se reutiliza de las clases Vectorial base.
  */
 public class ColorfulVectorialGameElementsFactory implements GameElementsFactory {
     

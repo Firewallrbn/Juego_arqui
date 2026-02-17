@@ -8,27 +8,25 @@ import java.util.Random;
 
 import com.balitechy.spacewar.main.rendering.BackgroundRendererInterface;
 
-/**
- * Renderer vectorial del fondo usando primitivas geométricas.
- * Dibuja un fondo espacial con estrellas generadas proceduralmente.
- */
+
+// Renderer vectorial del fondo 
 public class VectorialBackgroundRenderer implements BackgroundRendererInterface {
     
     protected Color backgroundColor = Color.BLACK;
     protected Color starColor = Color.WHITE;
     
-    // Posiciones de estrellas generadas aleatoriamente
+// decoracion fondo
     private int[][] stars;
     private boolean initialized = false;
     
     private void initStars(int width, int height) {
         if (!initialized) {
-            Random rand = new Random(42); // Seed fijo para consistencia
-            stars = new int[100][3]; // 100 estrellas con x, y, tamaño
+            Random rand = new Random(42); 
+            stars = new int[100][3];
             for (int i = 0; i < stars.length; i++) {
-                stars[i][0] = rand.nextInt(width);   // x
-                stars[i][1] = rand.nextInt(height);  // y
-                stars[i][2] = rand.nextInt(3) + 1;   // tamaño (1-3)
+                stars[i][0] = rand.nextInt(width);   
+                stars[i][1] = rand.nextInt(height);  
+                stars[i][2] = rand.nextInt(3) + 1;   
             }
             initialized = true;
         }

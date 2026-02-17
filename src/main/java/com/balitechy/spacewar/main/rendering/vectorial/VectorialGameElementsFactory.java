@@ -5,10 +5,8 @@ import com.balitechy.spacewar.main.rendering.BulletRenderer;
 import com.balitechy.spacewar.main.rendering.GameElementsFactory;
 import com.balitechy.spacewar.main.rendering.PlayerRenderer;
 
-/**
- * Fábrica concreta que crea renderers vectoriales usando primitivas geométricas.
- * Este estilo dibuja el juego usando formas simples como líneas, rectángulos y óvalos.
- */
+
+// Fábrica concreta que crea renderers 
 public class VectorialGameElementsFactory implements GameElementsFactory {
     
     @Override

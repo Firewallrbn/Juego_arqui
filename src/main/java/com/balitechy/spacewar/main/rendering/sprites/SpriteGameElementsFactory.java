@@ -6,10 +6,7 @@ import com.balitechy.spacewar.main.rendering.BulletRenderer;
 import com.balitechy.spacewar.main.rendering.GameElementsFactory;
 import com.balitechy.spacewar.main.rendering.PlayerRenderer;
 
-/**
- * Fábrica concreta que crea renderers basados en sprites/imágenes.
- * Esta es la implementación original del juego.
- */
+
 public class SpriteGameElementsFactory implements GameElementsFactory {
     
     private SpritesImageLoader sprites;

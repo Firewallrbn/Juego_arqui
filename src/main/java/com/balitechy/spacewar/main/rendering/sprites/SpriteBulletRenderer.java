@@ -6,15 +6,15 @@ import java.awt.image.BufferedImage;
 import com.balitechy.spacewar.main.SpritesImageLoader;
 import com.balitechy.spacewar.main.rendering.BulletRenderer;
 
-/**
- * Renderer de balas usando sprites (imágenes).
- */
+
+ // Renderer de balas usando sprites (imágenes).
+ 
 public class SpriteBulletRenderer implements BulletRenderer {
     
     private BufferedImage image;
     
     public SpriteBulletRenderer(SpritesImageLoader sprites) {
-        // Obtener la imagen de la bala del sprite sheet
+
         this.image = sprites.getImage(35, 52, 11, 21);
     }
     

@@ -8,9 +8,9 @@ import java.io.IOException;
 import com.balitechy.spacewar.main.SpritesImageLoader;
 import com.balitechy.spacewar.main.rendering.BackgroundRendererInterface;
 
-/**
- * Renderer del fondo usando sprites (imágenes).
- */
+
+ // Renderer del fondo usando sprites (imágenes).
+ 
 public class SpriteBackgroundRenderer implements BackgroundRendererInterface {
     
     private BufferedImage background;

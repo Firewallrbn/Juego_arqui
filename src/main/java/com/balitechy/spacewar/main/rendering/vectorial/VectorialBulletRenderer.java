@@ -5,10 +5,7 @@ import java.awt.Graphics;
 
 import com.balitechy.spacewar.main.rendering.BulletRenderer;
 
-/**
- * Renderer vectorial de balas usando primitivas geométricas.
- * Dibuja las balas como líneas/rectángulos simples.
- */
+
 public class VectorialBulletRenderer implements BulletRenderer {
     
     protected Color bulletColor = Color.YELLOW;

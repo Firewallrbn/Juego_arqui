@@ -5,10 +5,7 @@ import java.awt.Graphics;
 
 import com.balitechy.spacewar.main.rendering.PlayerRenderer;
 
-/**
- * Renderer vectorial del jugador usando primitivas geométricas.
- * Dibuja el jugador como una nave espacial usando formas simples.
- */
+
 public class VectorialPlayerRenderer implements PlayerRenderer {
     
     protected Color shipColor = Color.WHITE;
@@ -19,29 +16,29 @@ public class VectorialPlayerRenderer implements PlayerRenderer {
         int ix = (int) x;
         int iy = (int) y;
         
-        // Cuerpo principal de la nave (triángulo/polígono)
+        // Cuerpo de la nave 
         g.setColor(shipColor);
         int[] xPoints = {
-            ix + width / 2,      // Punta superior
-            ix,                   // Esquina inferior izquierda
-            ix + width / 4,       // Ala izquierda interior
-            ix + width * 3 / 4,   // Ala derecha interior
-            ix + width            // Esquina inferior derecha
+            ix + width / 2,      
+            ix,                  
+            ix + width / 4,      
+            ix + width * 3 / 4,   
+            ix + width            
         };
         int[] yPoints = {
-            iy,                   // Punta superior
-            iy + height,          // Esquina inferior izquierda
-            iy + height * 2 / 3,  // Ala izquierda interior
-            iy + height * 2 / 3,  // Ala derecha interior
-            iy + height           // Esquina inferior derecha
+            iy,                  
+            iy + height,          
+            iy + height * 2 / 3,  
+            iy + height * 2 / 3,  
+            iy + height           
         };
         g.fillPolygon(xPoints, yPoints, 5);
         
-        // Cabina (óvalo)
+        
         g.setColor(cockpitColor);
         g.fillOval(ix + width / 2 - 5, iy + height / 3, 10, 10);
         
-        // Contorno
+        
         g.setColor(Color.WHITE);
         g.drawPolygon(xPoints, yPoints, 5);
     }

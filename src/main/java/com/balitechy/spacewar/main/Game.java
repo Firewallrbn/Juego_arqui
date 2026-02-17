@@ -15,7 +15,7 @@ import com.balitechy.spacewar.main.rendering.BulletRenderer;
 import com.balitechy.spacewar.main.rendering.GameElementsFactory;
 import com.balitechy.spacewar.main.rendering.PlayerRenderer;
 import com.balitechy.spacewar.main.rendering.sprites.SpriteGameElementsFactory;
-// Descomentar para cambiar el estilo:
+
 import com.balitechy.spacewar.main.rendering.vectorial.VectorialGameElementsFactory;
 import com.balitechy.spacewar.main.rendering.colorful.ColorfulVectorialGameElementsFactory;
 
@@ -65,10 +65,10 @@ public class Game extends Canvas implements Runnable {
 		//factory = new SpriteGameElementsFactory(sprites);
 		
 		// Opción 2: Vectorial (formas geométricas)
-		factory = new VectorialGameElementsFactory();
+		//factory = new VectorialGameElementsFactory();
 		
-		// Opción 3: Vectorial Colorido (formas geométricas con colores)
-		// factory = new ColorfulVectorialGameElementsFactory();
+		// Opción 3: Vectorial Colorido 
+		factory = new ColorfulVectorialGameElementsFactory();
 		// =====================================================
 		
 		// Crear renderers usando la fábrica

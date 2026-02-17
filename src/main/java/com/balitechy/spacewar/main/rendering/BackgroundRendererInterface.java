@@ -4,10 +4,7 @@ import java.awt.Canvas;
 import java.awt.Graphics;
 import java.io.IOException;
 
-/**
- * Interfaz para renderizar el fondo del juego.
- * Parte del patrón Abstract Factory para desacoplar la lógica del juego de su visualización.
- */
+
 public interface BackgroundRendererInterface {
     
     /**
